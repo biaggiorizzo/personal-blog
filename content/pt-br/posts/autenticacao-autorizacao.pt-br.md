@@ -1,7 +1,7 @@
 ---
 date: '2025-10-24T11:23:09-03:00'
 draft: false
-title: 'Basico sobre Autenticação e Autorização'
+title: 'Básico sobre Autenticação e Autorização'
 translationKey: "auth-vs-authz"
 slug: 'autentica-autorizacao'
 tags: ["seguranca"]
