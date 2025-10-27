@@ -1,4 +1,4 @@
-baseURL: "https://biaggiorizzo.github.io/personal-blog/"
+baseURL: "https://biaggiorizzo.dev/"
 title: Biaggio Rizzo
 pagination:
   pagerSize: 5
@@ -110,9 +110,13 @@ taxonomies:
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
-  # goldmark:
-  #   renderer:
-  #     unsafe: true
+  goldmark:
+    # renderer:
+    #   unsafe: true
+    parser:
+      attribute:
+        block: true
+        title: true
   highlight:
     noClasses: false
     # anchorLineNos: true
