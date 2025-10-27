@@ -1,0 +1,103 @@
+/* =========================================
+   ALERT / CALLOUT STYLES for PaperMod
+   ========================================= */
+
+/* Base */
+.alert {
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  background-color: var(--alert-bg, #f9f9f9);
+  border-left: 5px solid var(--alert-color, #999);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  color: var(--alert-text, #222);
+}
+
+.alert .alert-heading {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  font-size: 1.05rem;
+}
+
+/* ======== VARIAÇÕES DE ALERTA (MODO CLARO) ======== */
+
+.alert-note {
+  --alert-color: #1976d2;
+  --alert-bg: #e3f2fd;
+  --alert-text: #11161b;
+}
+
+.alert-tip {
+  --alert-color: #2e7d32;
+  --alert-bg: #e8f5e9;
+  --alert-text: #0d1b0d;
+}
+
+.alert-important {
+  --alert-color: #6a1b9a;
+  --alert-bg: #f3e5f5;
+  --alert-text: #1a0a33;
+}
+
+.alert-warning {
+  --alert-color: #ef6c00;
+  --alert-bg: #fff3e0;
+  --alert-text: #3b1f00;
+}
+
+.alert-caution {
+  --alert-color: #c62828;
+  --alert-bg: #ffebee;
+  --alert-text: #3a0c0c;
+}
+
+/* ======== MODO ESCURO (estilo Obsidian) ======== */
+html.dark .alert {
+  color: var(--alert-text, #ccc);
+  background-color: var(--alert-bg, #1e1e1e);
+  border-left: 4px solid var(--alert-color, #888);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.3);
+}
+
+/* Nota – azul acinzentado */
+html.dark .alert-note {
+  --alert-color: #5fa9f4;
+  --alert-bg: #2b3440;
+  --alert-text: #d6e4f7;
+}
+
+/* Dica – verde musgo suave */
+html.dark .alert-tip {
+  --alert-color: #7db874;
+  --alert-bg: #28372c;
+  --alert-text: #d5e6d3;
+}
+
+/* Importante – roxo acinzentado */
+html.dark .alert-important {
+  --alert-color: #9f89c6;
+  --alert-bg: #312b3f;
+  --alert-text: #e2daf3;
+}
+
+/* Atenção – laranja queimado */
+html.dark .alert-warning {
+  --alert-color: #f0b562;
+  --alert-bg: #3a2f22;
+  --alert-text: #f7e6cc;
+}
+
+/* Cuidado – vermelho queimado */
+html.dark .alert-caution {
+  --alert-color: #d77a7a;
+  --alert-bg: #3a2626;
+  --alert-text: #f3dada;
+}
+
+/* Garante que nada do tema sobrescreva (mais específico) */
+.post-content .alert {
+  background-color: var(--alert-bg) !important;
+  border-left-color: var(--alert-color) !important;
+  color: var(--alert-text) !important;
+}

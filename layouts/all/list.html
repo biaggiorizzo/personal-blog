@@ -1,0 +1,95 @@
+{{- define "main" }}
+
+{{- if and (not .IsHome) (.Title) }}
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">{{ .Description | markdownify }}</div>
+  {{- end }}
+</header>
+{{- end }}
+
+{{/* ===== Qual filtro? (vem do front matter: langFilter: all|en|pt-br) ===== */}}
+{{- $langFilter := .Params.langFilter | default "all" -}}
+
+{{/* ===== Agrega posts de TODOS os idiomas ===== */}}
+{{- $all := slice -}}
+{{- range .Sites -}}
+  {{- $p := where .RegularPages "Type" "in" $.Site.Params.mainSections -}}
+  {{- $p = where $p "Params.hiddenInHomeList" "!=" true -}}
+  {{- range $p -}}
+    {{- $all = $all | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* ===== Aplica o filtro de idioma no servidor ===== */}}
+{{- if ne $langFilter "all" -}}
+  {{- $all = where $all "Lang" (lower $langFilter) -}}
+{{- end -}}
+
+{{/* ===== Ordena e pagina (usa o pagerSize padrão do Hugo) ===== */}}
+{{- $all = sort $all "Date" "desc" -}}
+{{- $paginator := .Paginate $all -}}
+
+{{/* ===== Toolbar com LINKS simples ===== */}}
+{{/* base: /pt-br/all/ ou /en/all/ conforme idioma */}}
+{{- $base := ("/all/" | relLangURL) -}}
+
+{{- $isAll  := eq $langFilter "all" -}}
+{{- $isEN   := eq $langFilter "en" -}}
+{{- $isPTBR := eq $langFilter "pt-br" -}}
+
+{{- $labelAll := cond (eq .Site.Language.Lang "en") "All" "Todos" -}}
+
+<div class="lang-filter-toolbar" role="tablist" aria-label="Filter posts by language">
+  {{- $base := ("/all/" | relLangURL) -}}
+<a class="lang-chip {{ if $isAll }}is-active{{ end }}"  href="{{ $base }}">{{ $labelAll }}</a>
+<a class="lang-chip {{ if $isEN }}is-active{{ end }}"   href="{{ printf "%s%s" $base "en/" }}">EN</a>
+<a class="lang-chip {{ if $isPTBR }}is-active{{ end }}" href="{{ printf "%s%s" $base "pt-br/" }}">PT-BR</a>
+</div>
+
+{{/* ===== Lista ===== */}}
+{{- range $paginator.Pages -}}
+  <article class="post-entry" data-lang="{{ .Lang | lower }}">
+    {{- $isHidden := (.Param "cover.hiddenInHomeList") | default (.Param "cover.hidden") | default false -}}
+    {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
+
+    <header class="entry-header">
+      <h2 class="entry-hint-parent">
+        {{ .Title }}
+        <span class="post-lang-chip">{{ if eq (.Lang | lower) "en" }}EN{{ else }}PT-BR{{ end }}</span>
+      </h2>
+    </header>
+
+    {{- if (ne (.Param "hideSummary") true) }}
+    <div class="entry-content">
+      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </div>
+    {{- end }}
+
+    {{- if not (.Param "hideMeta") }}
+    <footer class="entry-footer">
+      {{- partial "post_meta.html" . -}}
+    </footer>
+    {{- end }}
+
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  </article>
+{{- end }}
+
+{{/* ===== Paginação ===== */}}
+{{- if gt $paginator.TotalPages 1 }}
+<footer class="page-footer">
+  <nav class="pagination">
+    {{- if $paginator.HasPrev }}
+      <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">«&nbsp;{{ i18n "prev_page" }}</a>
+    {{- end }}
+    {{- if $paginator.HasNext }}
+      <a class="next" href="{{ $paginator.Next.URL | absURL }}">{{ i18n "next_page" }}&nbsp;»</a>
+    {{- end }}
+  </nav>
+</footer>
+{{- end }}
+
+{{- end }}
