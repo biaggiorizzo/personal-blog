@@ -5,7 +5,7 @@ title: 'Meu Primeiro Post'
 description: "Desc Text."
 translationKey: "meu-primeiro-post"
 cover:
-    image: "/images/6326651-tropical-praia-sundown-horizonte-paisagem-vetor.jpg"
+    image: "images/6326651-tropical-praia-sundown-horizonte-paisagem-vetor.jpg"
     alt: "Pôr do sol tropical"
     caption: "Imagem de pôr do sol na praia"
     relative: false
