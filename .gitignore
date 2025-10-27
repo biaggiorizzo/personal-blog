@@ -1,0 +1,45 @@
+# Hugo build output
+/public/
+/resources/_gen/
+/hugo_stats.json
+.hugo_build.lock
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor configs
+.vscode/
+.idea/
+*.iml
+
+# Backup files
+*.bak
+*.tmp
+*~
+
+# Node/npm (caso use pipelines ou npm scripts para assets)
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# Log files
+*.log
+
+# Hugo cache (opcional)
+.cache/
+.tmp/
+
+# Deploy helpers
+.deploy_*/
+
+# Hugo configuration backups
+/config/_default/params.toml.bak
+/config/_default/params.yaml.bak
+
+.env
+.env.*
+
+# Se quiser evitar que o submódulo do tema suba arquivos internos do .git
+themes/**/.git
+themes/**/.gitignore

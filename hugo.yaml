@@ -1,0 +1,199 @@
+baseURL: "https://biaggiorizzo.dev/"
+title: Biaggio Rizzo
+pagination:
+  pagerSize: 5
+theme: PaperMod
+
+enableRobotsTXT: true
+cleanDestinationDir: true
+
+# Build flags (produção)
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+
+privacy:
+  googleAnalytics:
+    anonymizeIP: true
+    respectDoNotTrack: true
+  youtube:
+    privacyEnhanced: true
+  x:
+    enableDNT: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+googleAnalytics: G-ZZLECG386Q
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: "Biaggio Rizzo Blog"
+  description: "Explorando tecnologia com propósito e curiosidade."
+  keywords: [Blog, Tecnologia, Desenvolvimento, Arquitetura, Backend]
+  author: Biaggio Rizzo
+  images: ["/images/site-cover.jpg"]
+  showAllLanguages: true
+  DateFormat: "January 2, 2006"
+
+  defaultTheme: light # dark, auto
+  disableThemeToggle: true
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShareButtons: ["linkedin", "whatsapp", "telegram"]
+
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  hidemeta: false
+
+  # Sumário
+  UseHugoToc: true
+  showtoc: false
+  tocopen: false
+
+  assets:
+    disableFingerprinting: false
+    favicon: "favicon.ico"
+    favicon16x16: "favicon-16x16.png"
+    favicon32x32: "favicon-32x32.png"
+    apple_touch_icon: "apple-touch-icon.png"
+    safari_pinned_tab: "favicon.ico"
+
+  label:
+    text: "Biaggio Rizzo"
+    iconHeight: 35
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/biaggio-rizzo/"
+    - name: github
+      url: "https://github.com/biaggiorizzo"
+    - name: medium
+      url: "https://medium.com/@rizzobiaggio"
+
+
+  cover:
+    responsiveImages: true
+    linkFullImages: false
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+
+taxonomies:
+  tag: tags
+
+
+
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+markup:
+  goldmark:
+    # renderer:
+    #   unsafe: true
+    parser:
+      attribute:
+        block: true
+        title: true
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai
+
+# languages
+defaultContentLanguage: pt-br
+defaultContentLanguageInSubdir: false
+canonifyURLs: true
+relativeURLs: false
+
+disableLanguages: ["en"]
+languages:
+  pt-br:
+    languageName: "Português (Brasil)"
+    languageCode: "pt-BR"
+    contentDir: "content/pt-br"
+    weight: 1
+    menu:
+      main:
+        # - identifier: all
+        #   name: "Postagens"
+        #   url: /all
+        #   weight: 1
+        - identifier: search
+          name: "Busca"
+          url: /search/
+          weight: 5
+        - identifier: archive
+          name: "Arquivos"
+          url: /archives/
+          weight: 10
+        - identifier: tags
+          name: "Tags"
+          url: /tags/
+          weight: 20
+    params:
+      description: "Explorando tecnologia com propósito e curiosidade."
+      homeInfoParams:
+        Title: "Biaggio Rizzo"
+        Content: |
+          💻 Um espaço onde compartilho **projetos** e **estudos** sobre tecnologia.
+          Sempre explorando **ideias**, **fundamentos** e **boas práticas**, e aprendendo algo novo a cada post.
+        # ✍🏻 Ocasionalmente escrevo em **português (Brasil)** e/ou **inglês**.
+
+  en:
+    languageName: "English"
+    languageCode: "en"
+    contentDir: "content/en"
+    weight: 2
+    disabled: true
+    menu:
+      main:
+        - identifier: all
+          name: "Posts"
+          url: /all
+          weight: 1
+        - identifier: search
+          name: "Search"
+          url: /search/
+          weight: 5
+        - identifier: archive
+          name: "Archives"
+          url: /archives/
+          weight: 10
+        - identifier: tags
+          name: "Tags"
+          url: /tags/
+          weight: 20
+    params:
+      description: "Exploring technology with purpose and curiosity."
+      homeInfoParams:
+        Title: "Biaggio Rizzo"
+        Content: |
+          💻 A place where I share **projects** and **technical notes**.
+          Always exploring **ideas**, **foundations**, and **best practices**, learning something new with every post.
+       #  ✍🏻 Occasionally published in **English** and/or **Brazilian Portuguese**.
