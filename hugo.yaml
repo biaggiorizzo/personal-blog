@@ -1,4 +1,4 @@
-baseURL: "https://biaggiorizzo.dev/personal-blog/"
+baseURL: "https://biaggiorizzo.github.io/personal-blog/"
 title: Biaggio Rizzo
 pagination:
   pagerSize: 5
