@@ -4,6 +4,11 @@ draft: false
 title: 'Meu Second Post'
 translationKey: "my-second-post"
 tags: ["teste","ttestes2"]
+cover:
+    image: "images/image.png"
+    alt: "Pôr do sol tropical"
+    caption: "Imagem de pôr do sol na praia"
+    relative: false
 ---
 
 
