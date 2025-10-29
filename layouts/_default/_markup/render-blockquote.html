@@ -1,0 +1,22 @@
+{{/* layouts/_default/_markup/render-blockquote.html */}}
+{{- $emojis := dict
+  "caution"   ":exclamation:"
+  "important" ":pushpin:"
+  "note"      ":information_source:"
+  "tip"       ":bulb:"
+  "warning"   ":warning:"
+-}}
+
+{{- if eq .Type "alert" -}}
+  {{- $type := .AlertType | lower -}}
+  {{- $title := cond (ne (printf "%s" .AlertTitle) "") .AlertTitle (or (i18n $type) (title $type)) -}}
+  <blockquote class="alert alert-{{ $type }}" role="note" aria-label="{{ $type }}">
+    <p class="alert-heading">
+      <span class="alert-icon">{{ transform.Emojify (index $emojis $type) }}</span>
+      <span class="alert-title">{{ $title }}</span>
+    </p>
+    <div class="alert-body">{{ .Text }}</div>
+  </blockquote>
+{{- else -}}
+  <blockquote>{{ .Text }}</blockquote>
+{{- end -}}

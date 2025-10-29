@@ -1,94 +1,69 @@
-<!-- 1) Carrega o Mermaid UMD SINCRONO (sem type="module" e sem defer) -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11.12.0/dist/mermaid.min.js"></script>
-
-<!-- 2) Script que salva o código original e re-renderiza a cada troca de tema -->
-<script>
-(function () {
-  // Colete todos os blocos .mermaid ORIGINAIS e guarde o código-fonte
-  // (antes de qualquer renderização)
-  function collectSources() {
-    const nodes = document.querySelectorAll('.mermaid');
-    return Array.from(nodes).map((el) => ({
-      // sempre manter um "placeholder" apontando para o nó atual
-      placeholder: el,
-      // guarda o texto original do diagrama
-      code: el.textContent || ''
-    }));
-  }
-
-  // Aplica o tema corrente do PaperMod + renderiza TODOS os diagramas
-  function renderAll(items) {
-    if (!window.mermaid) return;
-
-    const dark =
+<script type="module">
+  // Só roda em páginas de conteúdo (não listas) e se houver Mermaid
+  const isList = document.body.classList.contains('list'); // home/section/archives/search
+  const hasMermaid = !!document.querySelector('.mermaid');
+  if (isList || !hasMermaid) {
+    // Nada pra fazer
+  } else {
+    const isDark = () =>
       document.documentElement.classList.contains('dark') ||
+      document.body.classList.contains('dark') ||
       localStorage.getItem('pref-theme') === 'dark';
 
-    // Inicializa com o tema certo
-    window.mermaid.initialize({
-      startOnLoad: false,
-      theme: dark ? 'dark' : 'default',
-      themeVariables: { background: 'transparent' } // opcional
-    });
+    // Importa Mermaid ESM v11
+    const { default: mermaid } =
+      await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');
 
-    // Para cada diagrama, recria o <div class="mermaid"> com o código original
-    // substituindo o SVG anterior (se houver), e renderiza novamente.
-    for (const item of items) {
-      const fresh = document.createElement('div');
-      fresh.className = 'mermaid';
-      fresh.textContent = item.code;
+    // Transforma <div class="mermaid"> em hosts persistentes
+    function setupHosts() {
+      const hosts = [];
+      document.querySelectorAll('.mermaid').forEach((el) => {
+        const code = el.textContent || '';
+        const host = document.createElement('div');
+        host.className = 'mermaid-host';
+        host.dataset.code = code;
+        el.replaceWith(host);
+        hosts.push(host);
+      });
+      return hosts;
+    }
 
-      // substitui o placeholder atual (que pode ser <pre> original ou já um <svg>)
-      item.placeholder.replaceWith(fresh);
-      // atualiza o placeholder para o novo nó (para o próximo ciclo)
-      item.placeholder = fresh;
+    async function renderAll() {
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: isDark() ? 'dark' : 'default',
+        themeVariables: { background: 'transparent' },
+        // securityLevel: 'loose', // habilite se precisar de HTML no diagrama
+      });
 
-      // renderiza esse bloco específico
-      try {
-        window.mermaid.init(undefined, fresh);
-      } catch (e) {
-        console.error('Mermaid render error:', e);
+      const hosts = document.querySelectorAll('.mermaid-host');
+      let i = 0;
+      for (const host of hosts) {
+        const code = (host.dataset.code || '').trim();
+        try {
+          const { svg } = await mermaid.render(`m-${i++}`, code);
+          host.innerHTML = svg;
+        } catch (e) {
+          console.error('Mermaid render error:', e, '\nCode:\n', code);
+        }
       }
     }
-  }
 
-  // Aciona render inicial quando a página terminar de carregar
-  function onReady(fn) {
+    // Bootstrap
+    const boot = () => { setupHosts(); renderAll(); };
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', fn);
+      document.addEventListener('DOMContentLoaded', boot);
     } else {
-      fn();
+      boot();
     }
-  }
 
-  // Observa mudança de classe no <html> (PaperMod alterna .dark/.light)
-  function watchThemeChange(cb) {
-    const mo = new MutationObserver(cb);
-    mo.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class']
-    });
+    // Re-render quando o tema muda (PaperMod altera classe no <html>)
+    const mo = new MutationObserver(() => renderAll());
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
-    // Se o PaperMod mudar o localStorage('pref-theme'), reagimos também
-    window.addEventListener('storage', (e) => {
-      if (e.key === 'pref-theme') cb();
-    });
-
-    // Cobre também o clique no botão (se existir)
-    document.getElementById("theme-toggle")?.addEventListener("click", () => {
-    setTimeout(() => renderAll(sources), 0);
+    // E no clique do botão, se existir
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      setTimeout(renderAll, 0);
     });
   }
-
-  // --- bootstrap ---
-  let sources = []; // manteremos a lista de { placeholder, code }
-
-  onReady(function () {
-    sources = collectSources(); // pega os códigos antes do primeiro render
-    renderAll(sources);         // render inicial
-
-    // re-render sempre que o tema mudar
-    watchThemeChange(() => renderAll(sources));
-  });
-})();
 </script>
