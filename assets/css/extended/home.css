@@ -1,0 +1,11 @@
+@media (min-width: 769px) and (max-width: 1023.98px) {
+  body.home { --gap: 14px; --content-gap: 14px; }
+  .first-entry.home-info { margin: 14px 0; min-height: 260px; }
+  .first-entry.home-info + * { margin-top: 0; }
+  .post-entry { margin-bottom: 14px; }
+}
+
+@media (min-width: 1024px) {
+  .first-entry.home-info { margin-bottom: 0.5rem; min-height: 240px; }
+  .first-entry.home-info + * { margin-top: 0; }
+}

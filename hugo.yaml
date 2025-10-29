@@ -45,7 +45,7 @@ params:
   DateFormat: "January 2, 2006"
 
   defaultTheme: light # dark, auto
-  disableThemeToggle: true
+  disableThemeToggle: false
 
   ShowReadingTime: true
   ShowShareButtons: true
@@ -89,6 +89,9 @@ params:
   cover:
     responsiveImages: true
     linkFullImages: false
+    hidden: false
+    hiddenInList: false
+    hiddenInSingle: false 
 
   # for search
   # https://fusejs.io/api/options.html

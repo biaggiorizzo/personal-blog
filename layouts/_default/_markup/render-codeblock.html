@@ -1,0 +1,6 @@
+{{- $lang := lower .Type -}}
+{{- if eq $lang "mermaid" -}}
+<div class="mermaid">{{ .Inner | safeHTML }}</div>
+{{- else -}}
+<pre><code class="language-{{ $lang }}">{{- .Inner | htmlEscape -}}</code></pre>
+{{- end -}}

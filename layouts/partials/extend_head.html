@@ -1,0 +1,5 @@
+{{- $alerts := resources.Get "css/extended/alerts.css" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $alerts.RelPermalink }}" integrity="{{ $alerts.Data.Integrity }}">
+
+{{- $home := resources.Get "css/extended/home.css" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $home.RelPermalink }}" integrity="{{ $home.Data.Integrity }}">

@@ -1,103 +1,120 @@
 /* =========================================
-   ALERT / CALLOUT STYLES for PaperMod
+   Callouts PaperMod – troca confiável por toggle
+   – Light:  html:not(.dark)
+   – Dark:   html.dark  (ou body.dark)
    ========================================= */
 
-/* Base */
-.alert {
-  border-radius: 8px;
+/* Reset mínimo: estrutura e layout, sem cores */
+.post-content blockquote.alert {
+  border-radius: 10px;
   padding: 1rem 1.25rem;
-  margin: 1.5rem 0;
-  background-color: var(--alert-bg, #f9f9f9);
-  border-left: 5px solid var(--alert-color, #999);
-  box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  color: var(--alert-text, #222);
+  margin: 1.25rem 0;
+  border-left-width: 6px;
+  border-left-style: solid;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.06);
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.post-content blockquote.alert .alert-heading {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 650;
+  margin: 0 0 .35rem 0;
+}
+.post-content blockquote.alert .alert-icon { opacity: .9; }
+.post-content blockquote.alert .alert-title { line-height: 1.2; }
+.post-content blockquote.alert .alert-body { margin-top: .35rem; }
+
+/* ---------------- LIGHT (forçado) ---------------- */
+html:not(.dark) .post-content blockquote.alert {
+  background: #f9f9f9 !important;
+  color: #222 !important;
+  border-left-color: #999 !important;
+}
+html:not(.dark) .post-content blockquote.alert-note {
+  background: #eaf3ff !important;
+  color: #0f1822 !important;
+  border-left-color: #1976d2 !important;
+}
+html:not(.dark) .post-content blockquote.alert-tip {
+  background: #e8f5e9 !important;
+  color: #0e1a10 !important;
+  border-left-color: #2e7d32 !important;
+}
+html:not(.dark) .post-content blockquote.alert-important {
+  background: #f3e5f5 !important;
+  color: #190d26 !important;
+  border-left-color: #6a1b9a !important;
+}
+html:not(.dark) .post-content blockquote.alert-warning {
+  background: #fff3e0 !important;
+  color: #3b1f00 !important;
+  border-left-color: #ef6c00 !important;
+}
+html:not(.dark) .post-content blockquote.alert-caution {
+  background: #ffebee !important;
+  color: #330b0b !important;
+  border-left-color: #c62828 !important;
 }
 
-.alert .alert-heading {
+/* ---------------- DARK (forçado) ---------------- */
+/* Aceita html.dark OU body.dark (alguns forks/versões usam body) */
+html.dark .post-content blockquote.alert,
+body.dark .post-content blockquote.alert {
+  background: #1e2228 !important;   /* cinza-azulado bem escuro */
+  color: #d9dee7 !important;         /* claro sem ser branco puro */
+  border-left-color: #8a8f98 !important;
+  box-shadow: none;
+  border-left-width: 5px;            /* um pouco mais fino no dark */
+}
+
+/* NOTE */
+html.dark .post-content blockquote.alert-note,
+body.dark .post-content blockquote.alert-note {
+  background: #202633 !important;
+  color: #d7e3fb !important;
+  border-left-color: #7aa2f7 !important;
+}
+
+/* TIP */
+html.dark .post-content blockquote.alert-tip,
+body.dark .post-content blockquote.alert-tip {
+  background: #1f2a23 !important;
+  color: #dbe8cf !important;
+  border-left-color: #9ece6a !important;
+}
+
+/* IMPORTANT */
+html.dark .post-content blockquote.alert-important,
+body.dark .post-content blockquote.alert-important {
+  background: #242130 !important;
+  color: #e7defa !important;
+  border-left-color: #bb9af7 !important;
+}
+
+/* WARNING */
+html.dark .post-content blockquote.alert-warning,
+body.dark .post-content blockquote.alert-warning {
+  background: #2a251b !important;
+  color: #f4e6c9 !important;
+  border-left-color: #e0af68 !important;
+}
+
+/* CAUTION */
+html.dark .post-content blockquote.alert-caution,
+body.dark .post-content blockquote.alert-caution {
+  background: #2a1f23 !important;
+  color: #f6d9de !important;
+  border-left-color: #f7768e !important;
+}
+
+/* refinamento leve no dark */
+html.dark .post-content blockquote.alert .alert-heading,
+body.dark .post-content blockquote.alert .alert-heading {
   font-weight: 600;
-  margin-bottom: 0.25rem;
-  font-size: 1.05rem;
+  opacity: .95;
 }
-
-/* ======== VARIAÇÕES DE ALERTA (MODO CLARO) ======== */
-
-.alert-note {
-  --alert-color: #1976d2;
-  --alert-bg: #e3f2fd;
-  --alert-text: #11161b;
-}
-
-.alert-tip {
-  --alert-color: #2e7d32;
-  --alert-bg: #e8f5e9;
-  --alert-text: #0d1b0d;
-}
-
-.alert-important {
-  --alert-color: #6a1b9a;
-  --alert-bg: #f3e5f5;
-  --alert-text: #1a0a33;
-}
-
-.alert-warning {
-  --alert-color: #ef6c00;
-  --alert-bg: #fff3e0;
-  --alert-text: #3b1f00;
-}
-
-.alert-caution {
-  --alert-color: #c62828;
-  --alert-bg: #ffebee;
-  --alert-text: #3a0c0c;
-}
-
-/* ======== MODO ESCURO (estilo Obsidian) ======== */
-html.dark .alert {
-  color: var(--alert-text, #ccc);
-  background-color: var(--alert-bg, #1e1e1e);
-  border-left: 4px solid var(--alert-color, #888);
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.3);
-}
-
-/* Nota – azul acinzentado */
-html.dark .alert-note {
-  --alert-color: #5fa9f4;
-  --alert-bg: #2b3440;
-  --alert-text: #d6e4f7;
-}
-
-/* Dica – verde musgo suave */
-html.dark .alert-tip {
-  --alert-color: #7db874;
-  --alert-bg: #28372c;
-  --alert-text: #d5e6d3;
-}
-
-/* Importante – roxo acinzentado */
-html.dark .alert-important {
-  --alert-color: #9f89c6;
-  --alert-bg: #312b3f;
-  --alert-text: #e2daf3;
-}
-
-/* Atenção – laranja queimado */
-html.dark .alert-warning {
-  --alert-color: #f0b562;
-  --alert-bg: #3a2f22;
-  --alert-text: #f7e6cc;
-}
-
-/* Cuidado – vermelho queimado */
-html.dark .alert-caution {
-  --alert-color: #d77a7a;
-  --alert-bg: #3a2626;
-  --alert-text: #f3dada;
-}
-
-/* Garante que nada do tema sobrescreva (mais específico) */
-.post-content .alert {
-  background-color: var(--alert-bg) !important;
-  border-left-color: var(--alert-color) !important;
-  color: var(--alert-text) !important;
+html.dark .post-content blockquote.alert .alert-icon,
+body.dark .post-content blockquote.alert .alert-icon {
+  opacity: .85;
 }
