@@ -1,9 +1,8 @@
 ---
 date: '2025-11-03T17:44:12-03:00'
 title: 'Programação Orientada a Objetos (POO): Fundamentos, Pilares e Vantagens'
-translationKey: 
 slug: "poo-fundamentos"
-tags: [programacao, poo]
+tags: ["programacao", "poo"]
 cover:
     image: "images/aliens_construction.webp"
     alt: "Aliens planejando os pilares de POO" 
