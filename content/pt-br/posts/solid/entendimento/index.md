@@ -585,7 +585,7 @@ Perceba que as dependências se inverteram:
 ### **Como aplicar o DIP**
 
 1. **Identifique as dependências instáveis.**
-    (bancos, APIs externas, loggers, frameworks)
+    (bancos, APIs externas, loggers, frameworks).
 2. **Crie abstrações** que descrevem o contrato do que essas dependências fazem.
     (ex.: `Database`, `MessageSender`, `StorageProvider`)
 3. **Faça o módulo de alto nível depender da abstração.**
