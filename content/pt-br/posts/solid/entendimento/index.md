@@ -300,7 +300,7 @@ Essas regras são o “contrato invisível” entre pai e filho, caso sejam viol
 
 Você provavelmente está quebrando o LSP quando:
 
-- precisa usar fazer a verificação do tipo do objeto para tratar subclasses diferentes;
+- precisa fazer a verificação do tipo do objeto para tratar subclasses diferentes;
 - altera o comportamento de métodos herdados de forma que muda o resultado esperado;
 - lança exceções que a classe base não previa;
 - adiciona restrições que o tipo base não tinha.
