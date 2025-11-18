@@ -193,7 +193,7 @@ Metáfora: “A Máquina de Copiar Coisas”.
 ### **Por que isso é importante**
 
 O código fechado protege as funcionalidades já testadas e estáveis.  
-Quando uma nova necessidade surge, você adiciona um novo módulo, em vez de alterar um que já existe. Além de ser uma arquitetura sustentável, onde os módulos não precisam ser reescrito cada vez que a regra de de negócio muda.
+Quando uma nova necessidade surge, você adiciona um novo módulo, em vez de alterar um que já existe. Além de ser uma arquitetura sustentável, onde os módulos não precisam ser reescritos cada vez que a regra de de negócio muda.
 
 ### **Como aplicar**
 
