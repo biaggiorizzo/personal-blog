@@ -139,7 +139,7 @@ Isso é essencial para garantir estabilidade e evitar que novas funcionalidades 
 ### **Motivação**
 
 Quando o sistema cresce, o código tende a se tornar frágil.  
-Adicionar uma nova regra, e algo que funcionava antes para de funcionar.
+Adicionar uma nova regra, e algo que funcionava antes deixa de funcionar.
 O OCP surgiu como resposta a esse tipo de fragilidade.
 
 O objetivo é proteger o código consolidado, permitindo que novas regras ou variações sejam adicionadas sem tocar no que já foi testado.
