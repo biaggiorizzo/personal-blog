@@ -458,7 +458,7 @@ Resultado: baixo acoplamento e alta coesão.
 | Sinal de alerta                                                              | O que indica               |
 | ---------------------------------------------------------------------------- | -------------------------- |
 | Interface com muitos métodos “opcionais”                                     | Contrato genérico demais   |
-| Classes com métodos vazios ou exceções de erro.                              | Dependência forçada        |
+| Classes com métodos vazios ou que lançam exceções de erro.                   | Dependência forçada        |
 | Mudanças em uma interface afetam muitas classes                              | Alta instabilidade         |
 | Interfaces nomeadas como “InterfaceService”, “InterfaceManager” sem contexto | Design genérico e acoplado |
 
