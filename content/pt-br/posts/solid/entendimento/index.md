@@ -286,7 +286,7 @@ Barbara Liskov definiu isso com base em três regras fundamentais:
 
 1. **Pré-condições não podem ser fortalecidas.**
 	- A subclasse não pode exigir mais do que a classe base exigia.
-	- Exemplo: imagine que a classe base aceita qualquer número como entrada. Se a subclasse altera e passa aceita valores acima de 10, ela está adicionando uma exigência nova, portanto isso não é permitido.
+	- Exemplo: imagine que a classe base aceita qualquer número como entrada. Se a subclasse altera e passa a aceitar valores acima de 10, ela está adicionando uma exigência nova, portanto isso não é permitido.
 2. **Pós-condições não podem ser enfraquecidas.**
 	- A subclasse não pode garantir menos do que a classe base prometia.
 	- Exemplo: imagine que a classe base faz um cálculo e retorna o valor e a porcentagem. Se a subclasse passar a retornar somente o valor, ela está ferindo a regra, pois está oferecendo menos do que deveria cumprir.
