@@ -445,7 +445,7 @@ Crie um sistema que envie mensagens por **Email**, **SMS** e **Push**, aplicando
 5. Cada classe tem uma responsabilidade clara (SRP).
 6. A central não conhece detalhes concretos (DIP).
 
-O gabarito do exercício está escrito em Java, disponivel no meu Github:  https://github.com/biaggiorizzo/biaggio-blog-code/tree/main/concepts/poo/solid
+O gabarito do exercício está escrito em Java, disponível no meu Github:  https://github.com/biaggiorizzo/biaggio-blog-code/tree/main/concepts/poo/solid
 
 ## Conclusão
 
