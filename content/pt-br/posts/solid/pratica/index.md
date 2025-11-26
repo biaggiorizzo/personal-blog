@@ -199,7 +199,7 @@ class Moto(Transporte):
 {{< /highlight >}}
 
 
-**Problema:** A classe `Moto` herda um método que não faz sentido em ser utilizar, pois não possui refrigeração.  
+**Problema:** A classe `Moto` herda um método que não faz sentido ser utilizado, pois não possui refrigeração.  
 Se um código espera um `Transporte` completo (com `refrigerar()`), a moto quebra o programa, violando diretamente o LSP.
 
 ### Depois (respeitando o LSP + ISP)
