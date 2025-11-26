@@ -449,7 +449,7 @@ O gabarito do exercício está escrito em Java, disponível no meu Github:  http
 
 ## Conclusão
 
-Esse  exemplos  mostra como SOLID não é só teoria, mas é a base de arquiteturas sustentáveis, onde mudanças são simples e seguras.
+Esses exemplos mostram como SOLID não é só teoria, mas é a base de arquiteturas sustentáveis, onde mudanças são simples e seguras.
 
 # Referências
 
