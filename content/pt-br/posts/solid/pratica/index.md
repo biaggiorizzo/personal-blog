@@ -6,7 +6,7 @@ slug: "solid-na-pratica"
 tags: ["poo", "arquitetura", "boas-praticas"]
 cover:
     image: "images/roman-empire-battle-attack.webp"
-    alt: "Ilustração representa a prática dos principios SOLID" 
+    alt: "Ilustração representa a prática dos princípios SOLID" 
 ---
 
 Na **Parte 2**, vamos transformar esses conceitos em código real.  
