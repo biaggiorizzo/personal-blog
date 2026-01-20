@@ -62,7 +62,7 @@ params:
 
   # Sumário
   UseHugoToc: true
-  showtoc: false
+  showtoc: true
   tocopen: false
 
   assets:

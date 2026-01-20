@@ -176,7 +176,7 @@ Tabela comparativa sobre o uso:
 | **Modelo de implantação**     | Ambientes tradicionais ou cloud simples, com poucos pontos de variação.                                | Ambientes que exigem deploys altamente independentes e versionamento isolado.                       |
 | **Evolução do sistema**       | Quando o sistema tende a evoluir como um todo, de forma coordenada.                                    | Quando partes do sistema evoluem em ritmos completamente diferentes.                                |
 
-### Conclusão
+## Conclusão
 
 A _Layered Architecture_ é um estilo arquitetural, no ponto de vista conceitual combina hierarquia (de Dijkstra) e modularidade (de Parnas).  
 Ela foi formalizada academicamente por Shaw e Garlan e popularizada na prática por Fowler.  
