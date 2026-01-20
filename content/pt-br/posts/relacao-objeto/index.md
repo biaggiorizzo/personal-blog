@@ -12,7 +12,7 @@ cover:
 
 > As **relações entre objetos** representam como as classes interagem entre si.
 
-### Dependência
+## Dependência
 
 A **dependência** é a forma mais fraca de relação entre classes, ocorrendo quando uma depende da outra para operar. Caso uma delas sofra alterações, a outra pode ser impactada. Esse vínculo acontece, por exemplo, ao instanciar objetos diretamente ou ao definir tipos específicos em métodos.
 
@@ -39,7 +39,7 @@ Nesse exemplo, o método `estudar` depende da classe `Escola`, pois precisa de u
 
 [Veja o código completo no GitHub -> Dependência](https://github.com/biaggiorizzo/biaggio-blog-code/blob/main/concepts/poo/object-relationships/java/Example/src/main/java/org/example/Dependency.java)
 
-### Associação
+## Associação
 
 Se **Aluno** está associado a **Professor**, significa que há uma relação entre eles, mas **Aluno** não depende diretamente de **Professor** para existir.
 
@@ -69,7 +69,7 @@ Mesmo que a associação com `Professor` seja removida, a classe `Aluno` continu
 
 [Veja o código completo no GitHub -> Associação](https://github.com/biaggiorizzo/biaggio-blog-code/blob/main/concepts/poo/object-relationships/java/Example/src/main/java/org/example/Association.java)
 
-### Agregação
+## Agregação
 
 **Agregação** é um tipo especializado de **associação** que descreve relações **whole-part** (todo-parte), **one-to-many** (um-para-muitos) ou **many-to-many** (muitos-para-muitos) entre objetos. Diferente da associação simples, que conecta apenas dois objetos, a agregação envolve um objeto que "tem" ou contém outros objetos, funcionando como um **contêiner** ou **coleção**.
 
@@ -98,7 +98,7 @@ O ciclo de vida do componente (`Livro`) é independente do contêiner (`Bibliote
 
 [Veja o código completo no GitHub -> Agregação](https://github.com/biaggiorizzo/biaggio-blog-code/blob/main/concepts/poo/object-relationships/java/Example/src/main/java/org/example/Aggregation.java)
 
-### Composição
+## Composição
 
 A **composição** é uma relação mais forte do que a **agregação** e pode ser vista como um tipo especial de agregação. A principal característica da **composição** é que o **componente** (o objeto que é parte de outro) **não pode existir sem o contêiner** (o objeto que o "contém"). Ou seja, se o contêiner for destruído, os componentes também serão destruídos.
 
