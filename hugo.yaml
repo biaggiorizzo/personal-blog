@@ -84,6 +84,8 @@ params:
       url: "https://github.com/biaggiorizzo"
     - name: medium
       url: "https://medium.com/@rizzobiaggio"
+    - name: rss
+      url: "/index.xml"
 
 
   cover:
@@ -107,6 +109,8 @@ params:
 
 taxonomies:
   tag: tags
+  category: categories
+  series: series
 
 
 
@@ -155,6 +159,18 @@ languages:
           name: "Arquivos"
           url: /archives/
           weight: 10
+        - identifier: categories
+          name: "Categorias"
+          url: /categories/
+          weight: 15
+        - identifier: series
+          name: "Séries"
+          url: /series/
+          weight: 16
+        - identifier: rss
+          name: "RSS"
+          url: /index.xml
+          weight: 17
         - identifier: tags
           name: "Tags"
           url: /tags/

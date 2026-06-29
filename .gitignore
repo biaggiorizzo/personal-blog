@@ -43,3 +43,10 @@ npm-debug.log*
 # Se quiser evitar que o submódulo do tema suba arquivos internos do .git
 themes/**/.git
 themes/**/.gitignore
+
+# IA
+.agent/
+.agents/
+.codex/
+.gemini/
+.github/skills/
