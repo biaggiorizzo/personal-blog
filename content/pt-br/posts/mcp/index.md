@@ -219,9 +219,12 @@ Nesse modelo:
 - o servidor responde pelo `stdout`;
 - logs podem ser enviados pelo `stderr`.
 
-Esse modelo é comum para integrações locais, como acesso a arquivos do projeto ou ferramentas de desenvolvimento executadas na máquina do usuário.
+Esse modelo é comum para integrações locais, como acesso a arquivos do projeto ou ferramentas de desenvolvimento executadas na máquina do usuário. A principal vantagem é a simplicidade. Não é necessário expor um endpoint HTTP nem manter um serviço remoto. A comunicação acontece diretamente entre processos.
 
-A principal vantagem é a simplicidade. Não é necessário expor um endpoint HTTP nem manter um serviço remoto. A comunicação acontece diretamente entre processos.
+**Na prática:** Isso significa que a sua aplicação de IA executa silenciosamente um processo no terminal (como um script Python, um pacote `npx` ou um container Docker local) e conversa com ele trocando textos de forma invisível. 
+
+*(Dica: desenvolvedores frequentemente acessam máquinas remotas via túneis SSH para rodar o servidor. O túnel transporta os dados de ponta a ponta, mas para o protocolo MCP, a comunicação continua acontecendo via texto no console, mantendo o padrão `stdio`)*.
+
 
 ### Streamable HTTP: comunicação pela rede
 
@@ -234,9 +237,9 @@ Nesse modelo:
 - o servidor pode responder com JSON ou usar Server-Sent Events para streaming;
 - mecanismos de autenticação podem ser aplicados no transporte.
 
-Esse formato é mais adequado para cenários distribuídos, em que o servidor não está rodando dentro da mesma máquina do usuário.
+Esse formato é mais adequado para cenários distribuídos, em que o servidor não está rodando dentro da mesma máquina do usuário. Por outro lado, ele exige mais atenção com segurança. Servidores HTTP precisam validar origem, autenticar chamadas, limitar permissões e evitar expor serviços locais de forma insegura.
 
-Por outro lado, ele exige mais atenção com segurança. Servidores HTTP precisam validar origem, autenticar chamadas, limitar permissões e evitar expor serviços locais de forma insegura.
+**Na prática:** É como hospedar o servidor MCP na nuvem ou na rede da empresa como uma API Web tradicional. Múltiplas aplicações de IA diferentes podem consultar essa mesma API para acessar as mesmas ferramentas (como buscar dados corporativos ou processar pagamentos), exigindo os mesmos cuidados de segurança (CORS, Auth, etc) de qualquer API moderna.
 
 ## Primitivas do MCP
 
