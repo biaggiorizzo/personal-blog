@@ -259,8 +259,9 @@ Uma classe abstrata serve para modelar objetos que possuam características seme
 A Programação Orientada Objeto é poderoso quando aplicado de forma correta e com responsabilidade, oferece uma organização, reuso e manutenção facilitada, mas exige disciplina e bom design para que a complexidade do código não torne-se um problema.
 
 Neste post, vimos os pilares da Programação Orientada a Objetos de forma simples e visual.  
-Se quiser ver funcionando na prática, confira o repositório com os exemplos de código: 
-- https://github.com/biaggiorizzo/blog-oop-examples.git
+Se quiser ver funcionando na prática, confira os exemplos de código:
+
+{{< codigo path="poo" label="Abstração, Herança/Polimorfismo e Interfaces" kind="tree" >}}
 
 # Referências
 

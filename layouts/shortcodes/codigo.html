@@ -1,0 +1,6 @@
+{{- $repo := .Site.Params.codeRepo | default "https://github.com/biaggiorizzo/biaggio-blog-code" -}}
+{{- $path := .Get "path" -}}
+{{- $label := .Get "label" -}}
+{{- $kind := .Get "kind" | default "blob" -}}
+{{- $url := printf "%s/%s/main/%s" $repo $kind $path -}}
+<p><a href="{{ $url }}" target="_blank" rel="noopener noreferrer">Veja o código completo no GitHub -> {{ $label }}</a></p>
