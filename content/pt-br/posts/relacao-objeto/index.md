@@ -37,7 +37,7 @@ class Aluno {
 
 Nesse exemplo, o método `estudar` depende da classe `Escola`, pois precisa de um objeto para funcionar. A  dependência é **temporária**, não armazena uma referência permanente na classe `Aluno`.
 
-[Veja o código completo no GitHub -> Dependência](https://github.com/biaggiorizzo/biaggio-blog-code/blob/main/concepts/poo/object-relationships/java/Example/src/main/java/org/example/Dependency.java)
+{{< codigo path="poo/04-relacoes-entre-objetos/java/Dependency.java" label="Dependência" >}}
 
 ## Associação
 
@@ -67,7 +67,7 @@ class Aluno {
 
 Mesmo que a associação com `Professor` seja removida, a classe `Aluno` continua funcionando normalmente, pois não depende dela para existir.
 
-[Veja o código completo no GitHub -> Associação](https://github.com/biaggiorizzo/biaggio-blog-code/blob/main/concepts/poo/object-relationships/java/Example/src/main/java/org/example/Association.java)
+{{< codigo path="poo/04-relacoes-entre-objetos/java/Association.java" label="Associação" >}}
 
 ## Agregação
 
@@ -96,7 +96,7 @@ class Biblioteca {
 `Biblioteca` possui uma coleção de `Livro`, porém cada `Livro` pode existir por conta própria.
 O ciclo de vida do componente (`Livro`) é independente do contêiner (`Biblioteca`).
 
-[Veja o código completo no GitHub -> Agregação](https://github.com/biaggiorizzo/biaggio-blog-code/blob/main/concepts/poo/object-relationships/java/Example/src/main/java/org/example/Aggregation.java)
+{{< codigo path="poo/04-relacoes-entre-objetos/java/Aggregation.java" label="Agregação" >}}
 
 ## Composição
 
@@ -126,7 +126,7 @@ class Corpo {
 
 A classe `Corpo` possui um atributo do tipo `Coracao`, e instancia `Coracao` dentro de internamente no objeto `Corpo`. Ou seja, se `Corpo` for **destruído**, a referência a `Coracao` também será.
 
-[Veja o código completo no GitHub -> Composição](https://github.com/biaggiorizzo/biaggio-blog-code/blob/main/concepts/poo/object-relationships/java/Example/src/main/java/org/example/Composition.java)
+{{< codigo path="poo/04-relacoes-entre-objetos/java/Composition.java" label="Composição" >}}
 
 
 # Referências

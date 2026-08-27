@@ -43,6 +43,7 @@ params:
   images: ["/images/site-cover.jpg"]
   showAllLanguages: true
   DateFormat: "January 2, 2006"
+  codeRepo: "https://github.com/biaggiorizzo/biaggio-blog-code"
 
   defaultTheme: light # dark, auto
   disableThemeToggle: false
